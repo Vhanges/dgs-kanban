@@ -1,7 +1,11 @@
-import MainLayout from "./layout/MainLayout";
+import BoardPage from "./pages/BoardPage";
 
 function App() {
-  return <MainLayout />;
+  return (
+    <>
+      <BoardPage />
+    </>
+  );
 }
 
 export default App;
