@@ -1,11 +1,7 @@
 import BoardPage from "./pages/BoardPage";
 
 function App() {
-  return (
-    <>
-      <BoardPage />
-    </>
-  );
+  return <BoardPage />;
 }
 
 export default App;

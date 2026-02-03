@@ -1,5 +1,5 @@
 const Board = () => {
-  <div></div>;
+  <div className="text-black">Hello</div>;
 };
 
 export default Board;
