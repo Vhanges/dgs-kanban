@@ -1,5 +1,13 @@
+import AddNewColumnButton from "./AddNewColumnButton";
+
 const Board = () => {
-  <div className="text-black">Hello</div>;
+  return (
+    <div className="w-full h-screen">
+      <div className="w-full flex justify-center items-center">
+        <AddNewColumnButton />
+      </div>
+    </div>
+  );
 };
 
 export default Board;
