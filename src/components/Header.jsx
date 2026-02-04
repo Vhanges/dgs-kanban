@@ -1,4 +1,11 @@
-import { PlusOutlined, EditOutlined, DeleteOutlined, UnorderedListOutlined, ScheduleOutlined, SettingOutlined } from "@ant-design/icons";
+import {
+  PlusOutlined,
+  EditOutlined,
+  DeleteOutlined,
+  UnorderedListOutlined,
+  ScheduleOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
 import { Tooltip } from "antd";
 import { useModalStore } from "../store/modalStore";
 import { MODALS } from "./modals";
@@ -53,5 +60,12 @@ const Header = () => {
     </div>
   );
 };
+
+/**
+CODE to add when i'll be addding underline on active board link:
+
+hover:underline hover:decoration-amber-300 hover:decoration-2 hover:underline-offset-4
+
+*/
 
 export default Header;
