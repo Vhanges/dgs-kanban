@@ -4,6 +4,10 @@
   --color-dark-dark-gray: #2c2c2c;
   --color-dark-blue-gray-50: #2c333a;
   --color-dark-blue-gray-100: #1e2328;
+  --color-dark-gray-text: #494949;
+  --color-gray-text: #5e646d;
+  --color-dark-green: #066d08;
+  --color-gray: #ededed;
 }
 
 body {
@@ -13,4 +17,21 @@ body {
 
 .my-button {
   background-color: none;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
