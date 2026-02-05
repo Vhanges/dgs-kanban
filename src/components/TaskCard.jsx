@@ -1,9 +1,30 @@
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
+import { getPriority } from "../utils/priorityIdentifier";
+import { useDraggable } from "@dnd-kit/core";
+import { CSS } from "@dnd-kit/utilities";
 
-const TaskCard = ({ taskTitle, content, tags }) => {
+const TaskCard = ({ id, taskTitle, content, tags, priority, columnId }) => {
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id: id,
+    data: {
+      taskId: id,
+      columnId: columnId,
+    },
+  });
+
+  const style = {
+    transform: CSS.Translate.ToString(transform),
+  };
+
   return (
-    <div className="group flex min-h-25 border-l-5 rounded-sm border-dark-green flex-col gap-2 bg-[#C6CDD4] p-2">
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...listeners}
+      {...attributes}
+      className={`group flex min-h-25 border-l-5 rounded-sm ${getPriority(priority)} flex-col gap-2 bg-[#C6CDD4] p-2`}
+    >
       <div className="flex justify-between ">
         <p className="text-sm text-dark-gray-text font-bold">{taskTitle}</p>
         <div className="group-hover:flex gap-1 hidden">
@@ -20,9 +41,9 @@ const TaskCard = ({ taskTitle, content, tags }) => {
       </div>
       <div className="flex gap-2">
         {tags.map((tag) => (
-          <div className="px-3 py-[1px] bg-gray rounded-md">
+          <div key={tag.id} className="px-3 py-px bg-gray rounded-md">
             <p className="text-dark-gray-text text-[12px]" key={tag.id}>
-              {tag.tagName}
+              {tag.name}
             </p>
           </div>
         ))}
