@@ -1,57 +1,37 @@
 export const taskTestData = [
   {
     id: 1,
-    title: "To Do",
-    taskTitle: "Dashboard",
-    content: "Test to do task.",
-    priority: "Low",
-    tags: [
-      { id: 1, tagName: "test1" },
-      { id: 2, tagName: "test2" },
+    name: "To Do",
+    limit: 10,
+    tasks: [
+      {
+        id: "task-1",
+        title: "Dashboard",
+        content: "test card",
+        priority: "LOW",
+        dateCreated: "01/01/1111",
+        dueDate: "02/02/1111",
+        tags: [
+          { id: 1, name: "test tag" },
+          { id: 2, name: "second tag" },
+        ],
+      },
     ],
   },
   {
     id: 2,
-    taskTitle: "Inventory",
-    title: "Blog",
-    content: "Test to do task.",
-    priority: "Low",
-    tags: [
-      { id: 1, tagName: "test3" },
-      { id: 2, tagName: "test4" },
-    ],
-  },
-  {
-    id: 3,
-    title: "Review",
-    taskTitle: "Security",
-    content: "Test to do task.",
-    priority: "Low",
-    tags: [
-      { id: 1, tagName: "test5" },
-      { id: 2, tagName: "test6" },
-    ],
-  },
-  {
-    id: 4,
-    title: "Completed",
-    taskTitle: "Profile",
-    content: "Test to do task.",
-    priority: "Low",
-    tags: [
-      { id: 1, tagName: "test7" },
-      { id: 2, tagName: "test8" },
-    ],
-  },
-  {
-    id: 5,
-    title: "In Progress",
-    taskTitle: "Setting",
-    content: "Test to do task.",
-    priority: "Low",
-    tags: [
-      { id: 1, tagName: "test9" },
-      { id: 2, tagName: "test10" },
+    name: "In Progress",
+    limit: 10,
+    tasks: [
+      {
+        id: "task-2",
+        title: "Security",
+        content: "test card",
+        priority: "HIGH",
+        dateCreated: "01/01/1111",
+        dueDate: "02/02/1111",
+        tags: [{ id: 1, name: "test tag" }],
+      },
     ],
   },
 ];
