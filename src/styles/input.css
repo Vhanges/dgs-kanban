@@ -1,0 +1,57 @@
+/* Custom styles for form labels */
+.custom-form-item .ant-form-item-label > label {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    display: block;
+}
+
+/* Custom styles for input fields */
+.custom-form-item .ant-input {
+    font-size: 16px;
+    color: white;
+    background-color: var(--color-dark-blue-gray-100);
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    padding: 10px 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    border-color: var(--color-dark-gray);
+}
+
+.custom-form-item .ant-input:focus,
+.custom-form-item .ant-input-focused {
+    border: 2px solid var(--color-border-blue);
+}
+
+.custom-form-item .ant-input:hover {
+    border: 2px solid var(--color-border-blue);
+}
+
+.custom-form-item .ant-input::placeholder {
+    color: var(--color-dark-gray);
+}
+
+
+/* Custom styles for textarea */
+.custom-form-item .ant-input-textarea textarea.ant-input {
+    font-size: 16px;
+    color: white;
+    background-color: #fefefe;
+    border: 1px solid var(--color-dark-gray);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: white;
+}
+
+.custom-form-item .ant-input-textarea textarea.ant-input::placeholder {
+    color: white;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.custom-form-item .ant-input-textarea textarea.ant-input:focus,
+.custom-form-item .ant-input-textarea-focused textarea.ant-input {
+    border-color: white;
+    box-shadow: none;
+}
+
+
