@@ -1,0 +1,13 @@
+/* ============================================
+   GLOBAL STYLES INDEX
+   Import all style files here
+   ============================================ */
+
+/* Ant Design Component Overrides */
+@import './modal.css';
+@import './input.css';
+/* Add more component styles as needed:
+@import './button.css';
+@import './form.css';
+@import './table.css';
+*/

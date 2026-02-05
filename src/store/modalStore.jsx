@@ -15,8 +15,10 @@ export const renderModalContent = (name, props) => {
 export const useModalStore = create((set) => ({
   isOpen: false,
   modalName: null,
+  modalTitle: null,
   props: {},
 
-  openModal: (name, props = {}) => set({ isOpen: true, modalName: name, props }),
-  closeModal: () => set({ isOpen: false, modalName: null, props: {} }),
+  setModalTitle: (title) => set({modalTitle: title}),
+  openModal: (name, title, props = {}) => set({ isOpen: true, modalName: name, modalTitle: title, props }),
+  closeModal: () => set({ isOpen: false, modalName: null, modalTitle: null, props: {} }),
 }));
