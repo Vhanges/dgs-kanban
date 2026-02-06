@@ -7,6 +7,6 @@ export function getPriority(priority) {
     case "LOW":
       return "border-[#066d08]";
     default:
-      return "black-border";
+      return "border-[#000000]";
   }
 }
