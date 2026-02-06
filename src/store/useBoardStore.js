@@ -2,8 +2,22 @@ import { create } from "zustand";
 import { taskTestData } from "../data/taskTestData";
 import { arrayMove } from "@dnd-kit/sortable";
 
+const initialBoardId = taskTestData[0]?.id || null;
+
 export const useBoardStore = create((set) => ({
-  columns: taskTestData[0]?.boardColumns || [],
+  boards: taskTestData,
+  boardInUse: initialBoardId,
+  columns: taskTestData[initialBoardId]?.boardColumns || [],
+
+  setBoardInUse: (boardId) =>
+    set(() => {
+      const board = taskTestData.find((b) => b.id === boardId);
+      return {
+        boardInUse: boardId,
+        columns: board?.boardColumns || [],
+      };
+    }),
+
   setColumns: (columns) => set({ columns }),
 
   moveTask: (
@@ -42,7 +56,6 @@ export const useBoardStore = create((set) => ({
       }
 
       const insertIndex = isBelow ? overIndex + 1 : overIndex;
-
       toColumn.tasks.splice(insertIndex, 0, movedTask);
 
       return { columns: updatedColumns };

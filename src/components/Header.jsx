@@ -9,24 +9,27 @@ import {
 import { Tooltip } from "antd";
 import { useModalStore } from "../store/modalStore";
 import { MODALS } from "./modals";
+import { useBoardStore } from "../store/useBoardStore";
 
 const Header = () => {
   const { openModal, setModalTitle } = useModalStore();
+  const boards = useBoardStore((state) => state.boards);
+  const setBoardInUse = useBoardStore((state) => state.setBoardInUse);
 
   return (
     <div className="w-full h-fit bg-dark-dark-gray flex justify-items-center flex-row gap-3">
-      <button className="text-amber-50 h-full text-base pt-3 pb-1 px-2">
-        Board 1
-      </button>
-      <button className="text-amber-50 h-full text-base pt-3 pb-1 px-2">
-        Board 1
-      </button>
-      <button className="text-amber-50 h-full text-base pt-3 pb-1 px-2">
-        Board 1
-      </button>
-      <button className="text-amber-50 h-full text-base pt-3 pb-1 px-2">
-        Board 1
-      </button>
+      
+      <div className="flex flex-row gap-3 flex1 justify-items-center overflow-x-scroll">
+        {boards.map((board) => (
+          <button
+            key={board.id}
+            onClick={() => setBoardInUse(board.id)}
+            className="text-amber-50 h-full text-base pt-3 pb-1 px-2"
+          >
+            {board.boardName}
+          </button>
+        ))}
+      </div>
 
       <Tooltip placement="bottom" title="Add new board">
         <button

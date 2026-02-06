@@ -3,7 +3,7 @@ import Board from "../components/Board";
 const BoardPage = () => {
   return (
     <div className="w-full overflow-y-hidden">
-      {/* <Header /> */}
+      <Header />
       <Board />
     </div>
   );

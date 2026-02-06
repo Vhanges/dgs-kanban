@@ -7,7 +7,6 @@ const NewBoardModal = ({ closeModal }) => {
 
     const handleSubmit = (values) => {
         console.log("Form Values:", values);
-        // Add logic to handle form submission here
     };
 
     return (
