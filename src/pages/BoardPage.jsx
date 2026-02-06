@@ -4,7 +4,7 @@ const BoardPage = () => {
   return (
     <div className="w-full overflow-y-hidden">
       <Header />
-      <Board />
+      {/* <Board /> */}
     </div>
   );
 };

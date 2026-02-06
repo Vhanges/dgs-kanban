@@ -1,0 +1,215 @@
+/* ============================================
+   ANT DESIGN CHECKBOX STYLE OVERRIDES
+   Uncomment and modify styles as needed
+   ============================================ */
+
+/* ----- CHECKBOX WRAPPER (Container for checkbox and label) ----- */
+.custom-checkbox .ant-checkbox-wrapper {
+  /* display: inline-flex; */                     /* Display type */
+  /* align-items: baseline; */                    /* Vertical alignment */
+  /* line-height: unset; */                       /* Line height */
+  /* cursor: pointer; */                          /* Cursor on hover */
+  /* font-size: 14px; */                          /* Font size */
+  /* color: rgba(0, 0, 0, 0.88); */              /* Text color */
+}
+
+.custom-checkbox .ant-checkbox-wrapper:hover .ant-checkbox-inner {
+  background-color: transparent;                  /* Hover background transparent */
+  /* border-color: #1677ff; */                    /* Hover border color */
+}
+
+.custom-checkbox .ant-checkbox-wrapper:hover .ant-checkbox:not(.ant-checkbox-checked):not(.ant-checkbox-disabled) .ant-checkbox-inner {
+  background-color: transparent;                  /* Hover background transparent for unchecked */
+  /* border-color: #1677ff; */                    /* Hover border for unchecked */
+}
+
+/* ----- CHECKBOX CONTAINER ----- */
+.custom-checkbox .ant-checkbox {
+  /* position: relative; */                       /* Position type */
+  /* top: 0.2em; */                              /* Top offset */
+  /* line-height: 1; */                          /* Line height */
+  /* white-space: nowrap; */                     /* Text wrapping */
+  /* outline: none; */                           /* Remove outline */
+  /* cursor: pointer; */                         /* Cursor style */
+}
+
+/* ----- CHECKBOX INNER (The visual checkbox) ----- */
+.custom-checkbox .ant-checkbox-inner {
+  /* position: relative; */                      /* Position type */
+  /* top: 0; */                                  /* Top position */
+  /* left: 0; */                                 /* Left position */
+  /* display: block; */                          /* Display type */
+  /* width: 16px; */                             /* Checkbox width */
+  /* height: 16px; */                            /* Checkbox height */
+  /* direction: ltr; */                          /* Text direction */
+  background-color: transparent;                 /* Background color */
+  /* border: 1px solid #d9d9d9; */               /* Border */
+  /* border-radius: 2px; */                      /* Border radius */
+  /* border-collapse: separate; */               /* Border collapse */
+  /* transition: all 0.3s; */                    /* Transition effect */
+}
+
+.custom-checkbox .ant-checkbox-inner:after {
+  /* position: absolute; */                      /* Position type */
+  /* top: 50%; */                                /* Top position */
+  /* left: 21.5%; */                            /* Left position */
+  /* display: table; */                          /* Display type */
+  /* width: 5.71428571px; */                     /* Checkmark width */
+  /* height: 9.14285714px; */                    /* Checkmark height */
+  /* border: 2px solid #fff; */                  /* Checkmark border */
+  /* border-top: 0; */                           /* Remove top border */
+  /* border-left: 0; */                          /* Remove left border */
+  /* transform: rotate(45deg) scale(0) translate(-50%, -50%); */ /* Checkmark transform */
+  /* opacity: 0; */                              /* Checkmark opacity */
+  /* transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s; */ /* Transition */
+  /* content: ''; */                             /* Content */
+}
+
+/* ----- CHECKBOX INPUT (Hidden input element) ----- */
+.custom-checkbox .ant-checkbox-input {
+  /* position: absolute; */                      /* Position type */
+  /* left: 0; */                                 /* Left position */
+  /* z-index: 1; */                             /* Z-index */
+  /* cursor: pointer; */                         /* Cursor style */
+  /* opacity: 0; */                              /* Hide input */
+  /* top: 0; */                                  /* Top position */
+  /* bottom: 0; */                               /* Bottom position */
+  /* right: 0; */                                /* Right position */
+}
+
+
+/* ----- CHECKBOX CHECKED STATE ----- */
+.custom-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: transparent;                 /* Checked background color */
+  border-color: white;                           /* Checked border color */
+}
+.custom-checkbox .ant-checkbox-checked .ant-checkbox-inner:hover {
+  background-color: transparent;                 /* Checked background color */
+  border-color: white;                           /* Checked border color */
+}
+
+.custom-checkbox .ant-checkbox-checked .ant-checkbox-inner:after {
+  /* opacity: 1; */                              /* Show checkmark */
+  /* transform: rotate(45deg) scale(1) translate(-50%, -50%); */ /* Show checkmark animation */
+}
+
+.custom-checkbox .ant-checkbox-checked:after {
+  /* position: absolute; */                      /* Position type */
+  /* top: 0; */                                  /* Top position */
+  /* left: 0; */                                 /* Left position */
+  /* width: 100%; */                             /* Full width */
+  /* height: 100%; */                            /* Full height */
+  /* border-radius: 2px; */                      /* Border radius */
+  border: 1px solid white;                       /* Border */
+  /* content: ''; */                             /* Content */
+  /* animation: antCheckboxEffect 0.36s ease-in-out; */ /* Animation */
+  /* animation-fill-mode: backwards; */          /* Animation fill */
+  /* visibility: hidden; */                      /* Hide element */
+}
+
+/* ----- CHECKBOX INDETERMINATE STATE ----- */
+.custom-checkbox .ant-checkbox-indeterminate .ant-checkbox-inner {
+  /* background-color: #1677ff; */               /* Indeterminate background */
+  /* border-color: #1677ff; */                   /* Indeterminate border */
+}
+
+.custom-checkbox .ant-checkbox-indeterminate .ant-checkbox-inner:after {
+  /* top: 50%; */                                /* Center position */
+  /* left: 50%; */                               /* Center position */
+  /* width: 8px; */                              /* Indeterminate mark width */
+  /* height: 1px; */                             /* Indeterminate mark height */
+  /* background-color: #fff; */                  /* Indeterminate mark color */
+  /* border: 0; */                               /* Remove border */
+  /* transform: translate(-50%, -50%) scale(1); */ /* Center and show */
+  /* opacity: 1; */                              /* Show mark */
+  /* content: ''; */                             /* Content */
+}
+
+/* ----- CHECKBOX DISABLED STATE ----- */
+.custom-checkbox .ant-checkbox-disabled {
+  /* cursor: not-allowed; */                     /* Disabled cursor */
+}
+
+.custom-checkbox .ant-checkbox-disabled .ant-checkbox-inner {
+  /* background-color: rgba(0, 0, 0, 0.04); */  /* Disabled background */
+  /* border-color: #d9d9d9; */                   /* Disabled border */
+}
+
+.custom-checkbox .ant-checkbox-disabled .ant-checkbox-inner:after {
+  /* border-color: rgba(0, 0, 0, 0.25); */      /* Disabled checkmark color */
+}
+
+.custom-checkbox .ant-checkbox-disabled + span {
+  /* color: rgba(0, 0, 0, 0.25); */             /* Disabled label color */
+  /* cursor: not-allowed; */                     /* Disabled cursor */
+}
+
+.custom-checkbox .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner:after {
+  /* border-color: rgba(0, 0, 0, 0.25); */      /* Disabled checked mark */
+}
+
+/* ----- CHECKBOX LABEL TEXT ----- */
+.custom-checkbox .ant-checkbox-wrapper span:not(.ant-checkbox) {
+  /* padding-left: 8px; */                       /* Space between checkbox and label */
+  /* padding-right: 8px; */                      /* Right padding */
+  /* font-size: 14px; */                         /* Label font size */
+  /* color: rgba(0, 0, 0, 0.88); */             /* Label color */
+  /* line-height: 1.5714285714285714; */         /* Label line height */
+}
+
+/* ----- CHECKBOX FOCUS STATE ----- */
+.custom-checkbox .ant-checkbox:focus-visible {
+  /* outline: 4px solid #1677ff40; */            /* Focus outline */
+  /* outline-offset: 2px; */                     /* Focus outline offset */
+}
+
+.custom-checkbox .ant-checkbox-input:focus + .ant-checkbox-inner {
+  border-color: white;                   /* Focus border color */
+}
+
+/* ----- CHECKBOX GROUP STYLES ----- */
+.custom-checkbox .ant-checkbox-group {
+  /* display: inline-flex; */                    /* Group display */
+  /* flex-wrap: wrap; */                         /* Allow wrapping */
+  /* gap: 8px 0; */                             /* Gap between items */
+}
+
+.custom-checkbox .ant-checkbox-group-item {
+  /* margin-right: 8px; */                       /* Margin between group items */
+}
+
+.custom-checkbox .ant-checkbox-group-item:last-child {
+  /* margin-right: 0; */                         /* Remove margin from last item */
+}
+
+/* ============================================
+   CUSTOM ANIMATIONS
+   ============================================ */
+
+/* ----- CHECKBOX EFFECT ANIMATION ----- */
+/* @keyframes antCheckboxEffect {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+} */
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* ----- MOBILE STYLES ----- */
+@media (max-width: 768px) {
+  .custom-checkbox .ant-checkbox-inner {
+    /* width: 18px; */                            /* Larger checkbox on mobile */
+    /* height: 18px; */                           /* Larger checkbox on mobile */
+  }
+
+  .custom-checkbox .ant-checkbox-wrapper span:not(.ant-checkbox) {
+    /* font-size: 16px; */                        /* Larger label on mobile */
+  }
+}
