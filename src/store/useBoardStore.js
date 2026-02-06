@@ -1,9 +1,22 @@
 import { create } from "zustand";
 import { taskTestData } from "../data/taskTestData";
 
+const initialBoardId = taskTestData[0]?.id || null;
+
 export const useBoardStore = create((set) => ({
   boards: taskTestData,
-  columns: taskTestData[0]?.boardColumns || [],
+  boardInUse: initialBoardId,
+  columns: taskTestData[initialBoardId]?.boardColumns || [],
+  
+  setBoardInUse: (boardId) =>
+    set(() => {
+      const board = taskTestData.find((b) => b.id === boardId);
+      return {
+        boardInUse: boardId,
+        columns: board?.boardColumns || [],
+      };
+    }),
+    
   setColumns: (columns) => set({ columns }),
 
   moveTask: (
@@ -11,7 +24,7 @@ export const useBoardStore = create((set) => ({
     fromColumnId,
     toColumnId,
     overTaskId = null,
-    isBelow = false,
+    isBelow = false
   ) =>
     set((state) => {
       const updatedColumns = state.columns.map((col) => ({
@@ -42,7 +55,6 @@ export const useBoardStore = create((set) => ({
       }
 
       const insertIndex = isBelow ? overIndex + 1 : overIndex;
-
       toColumn.tasks.splice(insertIndex, 0, movedTask);
 
       return { columns: updatedColumns };
@@ -66,7 +78,6 @@ export const useBoardStore = create((set) => ({
       const [movedTask] = column.tasks.splice(taskIndex, 1);
 
       let insertIndex = isBelow ? overIndex + 1 : overIndex;
-
       if (taskIndex < overIndex) insertIndex--;
 
       column.tasks.splice(insertIndex, 0, movedTask);
