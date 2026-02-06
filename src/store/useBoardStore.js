@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { taskTestData } from "../data/taskTestData";
+import { arrayMove } from "@dnd-kit/sortable";
 
 export const useBoardStore = create((set) => ({
   columns: taskTestData[0]?.boardColumns || [],
@@ -47,7 +48,7 @@ export const useBoardStore = create((set) => ({
       return { columns: updatedColumns };
     }),
 
-  reorderTask: (taskId, columnId, overTaskId, isBelow = false) =>
+  reorderTask: (taskId, columnId, overTaskId) =>
     set((state) => {
       const updatedColumns = state.columns.map((col) => ({
         ...col,
@@ -57,18 +58,12 @@ export const useBoardStore = create((set) => ({
       const column = updatedColumns.find((col) => col.id === columnId);
       if (!column) return state;
 
-      const taskIndex = column.tasks.findIndex((t) => t.id === taskId);
-      const overIndex = column.tasks.findIndex((t) => t.id === overTaskId);
+      const oldIndex = column.tasks.findIndex((t) => t.id === taskId);
+      const newIndex = column.tasks.findIndex((t) => t.id === overTaskId);
 
-      if (taskIndex === -1 || overIndex === -1) return state;
+      if (oldIndex === -1 || newIndex === -1) return state;
 
-      const [movedTask] = column.tasks.splice(taskIndex, 1);
-
-      let insertIndex = isBelow ? overIndex + 1 : overIndex;
-
-      if (taskIndex < overIndex) insertIndex--;
-
-      column.tasks.splice(insertIndex, 0, movedTask);
+      column.tasks = arrayMove(column.tasks, oldIndex, newIndex);
 
       return { columns: updatedColumns };
     }),

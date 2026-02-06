@@ -14,14 +14,18 @@ const TaskCard = ({ task, columnId, isOverlay }) => {
     isDragging,
   } = useSortable({
     id: task.id,
-    data: { task: task, taskId: task.id, columnId },
+    data: {
+      taskId: task.id,
+      task,
+      columnId,
+    },
   });
 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
+    opacity: isDragging ? 0.4 : 1,
     zIndex: isOverlay ? 9999 : undefined,
-    opacity: isDragging ? 0.5 : 1,
   };
 
   return (
@@ -30,7 +34,9 @@ const TaskCard = ({ task, columnId, isOverlay }) => {
       style={style}
       {...(!isOverlay ? listeners : {})}
       {...(!isOverlay ? attributes : {})}
-      className={`group flex min-h-25 border-l-5 rounded-sm ${getPriority(task.priority)} flex-col gap-2 bg-[#C6CDD4] p-2 overflow-x-hidden ${
+      className={`group flex min-h-25 border-l-5 rounded-sm ${getPriority(
+        task.priority,
+      )} flex-col gap-2 bg-[#C6CDD4] p-2 overflow-x-hidden ${
         isOverlay ? "shadow-lg" : ""
       }`}
     >

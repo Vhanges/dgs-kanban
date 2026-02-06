@@ -10,7 +10,7 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-1",
+            id: 10292003092,
             title: "Dashboard",
             content: "test card",
             priority: "LOW",
@@ -29,7 +29,39 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-2",
+            id: 10859295902,
+            title: "Security",
+            content: "test card",
+            priority: "HIGH",
+            dateCreated: "01/01/1111",
+            dueDate: "02/02/1111",
+            tags: [{ id: 1, name: "test tag" }],
+          },
+        ],
+      },
+      {
+        id: 3,
+        name: "In Progress",
+        limit: 10,
+        tasks: [
+          {
+            id: 10928519903,
+            title: "Security",
+            content: "test card",
+            priority: "HIGH",
+            dateCreated: "01/01/1111",
+            dueDate: "02/02/1111",
+            tags: [{ id: 1, name: "test tag" }],
+          },
+        ],
+      },
+      {
+        id: 4,
+        name: "In Progress",
+        limit: 10,
+        tasks: [
+          {
+            id: 1009581104,
             title: "Security",
             content: "test card",
             priority: "HIGH",
@@ -52,7 +84,7 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-3",
+            id: 2049912941923001,
             title: "Wireframes",
             content: "Create low-fidelity wireframes",
             priority: "MEDIUM",
@@ -81,7 +113,7 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-4",
+            id: 30912930401,
             title: "Database Schema",
             content: "Design database structure",
             priority: "HIGH",
@@ -113,7 +145,7 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-5",
+            id: 491239940013001,
             title: "Unit Tests",
             content: "Write unit tests for auth module",
             priority: "HIGH",
@@ -142,7 +174,7 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-6",
+            id: 500012912401,
             title: "API Documentation",
             content: "Document REST endpoints",
             priority: "MEDIUM",
@@ -171,7 +203,7 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-7",
+            id: 6012412401,
             title: "CI/CD Pipeline",
             content: "Setup GitHub Actions",
             priority: "HIGH",
@@ -203,7 +235,7 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-8",
+            id: 70129124801,
             title: "Push Notifications",
             content: "Implement push notification system",
             priority: "MEDIUM",
@@ -232,7 +264,7 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-9",
+            id: 801239124901,
             title: "Load Testing",
             content: "Performance benchmarking",
             priority: "HIGH",
@@ -261,7 +293,7 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-10",
+            id: 124912999001,
             title: "Login Form Bug",
             content: "Fix validation error message",
             priority: "HIGH",
@@ -290,7 +322,7 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-11",
+            id: 104124018001,
             title: "Dark Mode",
             content: "Implement dark theme toggle",
             priority: "LOW",
@@ -322,7 +354,7 @@ export const taskTestData = [
         limit: 10,
         tasks: [
           {
-            id: "task-12",
+            id: 11012394801,
             title: "Code Review",
             content: "Review pull requests",
             priority: "MEDIUM",

@@ -1,43 +1,57 @@
 import AddNewColumnButton from "./AddNewColumnButton";
 import Column from "./Column";
+import TaskCard from "./TaskCard";
 import { useBoardStore } from "../store/useBoardStore";
 import { useState } from "react";
-import TaskCard from "./TaskCard";
 import { DndContext, DragOverlay, closestCorners } from "@dnd-kit/core";
+import AddNewTaskModal from "./AddNewTaskPanel";
 
 const Board = () => {
   const columns = useBoardStore((state) => state.columns);
   const moveTask = useBoardStore((state) => state.moveTask);
   const reorderTask = useBoardStore((state) => state.reorderTask);
+  const [openNewTaskPanel, setOpenNewTaskPanel] = useState(false);
+
   const [activeTask, setActiveTask] = useState(null);
+
+  const showAddNewTaskPanel = () => {
+    setOpenNewTaskPanel(true);
+  };
+
+  const closeAddNewTaskPanel = () => {
+    setOpenNewTaskPanel(false);
+  };
+
+  const getDragData = ({ active, over }) => {
+    if (!over) return null;
+
+    return {
+      activeTaskId: active.id,
+      fromColumnId: active.data.current.columnId,
+      overColumnId: over.data.current?.columnId || over.id,
+      overTaskId: over.data.current?.taskId || null,
+    };
+  };
 
   const handleDragStart = (event) => {
     setActiveTask(event.active.data.current.task);
   };
 
   const handleDragOver = (event) => {
-    const { active, over } = event;
+    const data = getDragData(event);
+    if (!data) return;
 
-    // setActiveTask(null);
-
-    if (!over) return;
-
-    const activeTaskId = active.id;
-    const fromColumnId = active.data.current.columnId;
-
-    const overColumnId = over.data.current?.columnId || over.id;
-    const overTaskId = over.data.current?.taskId || null;
+    const { activeTaskId, fromColumnId, overColumnId, overTaskId } = data;
 
     if (activeTaskId === overTaskId) return;
 
     if (!overTaskId) {
-      moveTask(activeTaskId, fromColumnId, overColumnId, null);
+      moveTask(activeTaskId, fromColumnId, overColumnId);
       return;
     }
 
-    const activeRect = active.rect.current.translated;
-    const overRect = over.rect;
-
+    const activeRect = event.active.rect.current.translated;
+    const overRect = event.over.rect;
     if (!activeRect || !overRect) return;
 
     const isBelow = activeRect.top > overRect.top + overRect.height / 2;
@@ -49,25 +63,43 @@ const Board = () => {
     }
   };
 
-  const handleDragEnd = () => {
+  const handleDragEnd = (event) => {
+    const data = getDragData(event);
     setActiveTask(null);
+
+    if (!data) return;
+
+    const { activeTaskId, fromColumnId, overColumnId, overTaskId } = data;
+
+    if (fromColumnId === overColumnId) {
+      if (overTaskId && activeTaskId !== overTaskId) {
+        reorderTask(activeTaskId, fromColumnId, overTaskId);
+      }
+    } else {
+      moveTask(activeTaskId, fromColumnId, overColumnId, overTaskId);
+    }
   };
 
   return (
     <DndContext
       onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}
       onDragOver={handleDragOver}
+      onDragEnd={handleDragEnd}
       collisionDetection={closestCorners}
     >
-      <div className="pt-4 flex flex-col overflow-y-hidden">
+      <div className="pt-4 flex flex-col overflow-y-hidden h-screen">
         <div className="w-full flex justify-center items-center mb-4">
           <AddNewColumnButton />
         </div>
+
         <div className="flex flex-1 overflow-x-auto overflow-y-hidden">
           <div className="px-4 flex">
             {columns?.map((column) => (
-              <Column key={column.id} column={column} />
+              <Column
+                showAddNewTaskPanel={showAddNewTaskPanel}
+                key={column.id}
+                column={column}
+              />
             ))}
           </div>
         </div>
@@ -76,6 +108,13 @@ const Board = () => {
       <DragOverlay>
         {activeTask ? <TaskCard task={activeTask} isOverlay /> : null}
       </DragOverlay>
+
+      {openNewTaskPanel ? (
+        <AddNewTaskModal
+          open={openNewTaskPanel}
+          onClose={closeAddNewTaskPanel}
+        />
+      ) : null}
     </DndContext>
   );
 };

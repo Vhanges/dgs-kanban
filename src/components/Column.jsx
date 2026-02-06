@@ -7,7 +7,12 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 
-const Column = ({ column }) => {
+const Column = ({
+  column,
+  setOpenSidePanel,
+  openSidePanel,
+  showAddNewTaskPanel,
+}) => {
   const [shrink, setShrink] = useState(false);
 
   const { setNodeRef } = useDroppable({
@@ -24,8 +29,11 @@ const Column = ({ column }) => {
       <ColumnHeader
         shrink={shrink}
         setShrink={setShrink}
+        setOpenSidePanel={setOpenSidePanel}
+        openSidePanel={openSidePanel}
         title={column.name}
         total={column.tasks.length}
+        showAddNewTaskPanel={showAddNewTaskPanel}
       />
       <SortableContext items={taskIds} strategy={verticalListSortingStrategy}>
         <div
