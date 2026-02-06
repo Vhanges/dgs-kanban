@@ -1,0 +1,94 @@
+/* ============================================
+   ANT DESIGN MODAL STYLE OVERRIDES
+   ============================================ */
+
+/* ----- MODAL MASK (BACKDROP) ----- */
+.custom-modal .ant-modal-mask {
+}
+
+/* ----- MODAL WRAPPER ----- */
+.custom-modal .ant-modal {
+
+}
+
+/* ----- MODAL CONTAINER ----- */
+.custom-modal .ant-modal-container {
+    width: fit-content;
+    min-width: 350px;
+    background-color: var(--color-dark-blue-gray-50);
+    border: 1px solid var(--color-dark-medium-gray);
+    border-radius: 4px;
+    justify-self: center;
+}
+
+/* ----- MODAL CONTENT (Main container) ----- */
+.custom-modal .ant-modal-content {
+}
+
+/* ----- MODAL HEADER ----- */
+.custom-modal .ant-modal-header {
+  border-bottom: 2px solid var(--color-dark-gray);
+}
+
+/* ----- MODAL TITLE ----- */
+.custom-modal .ant-modal-title {
+  color: white;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* ----- MODAL BODY ----- */
+.custom-modal .ant-modal-body {
+    padding-top: 1rem;
+}
+
+/* ----- MODAL FOOTER ----- */
+.custom-modal .ant-modal-footer {
+}
+
+/* ----- CLOSE BUTTON WRAPPER ----- */
+.custom-modal .ant-modal-close {
+  top: 20px;
+  right: 20px;
+}
+
+/* ----- CLOSE BUTTON ICON ----- */
+.custom-modal .ant-modal-close-icon {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+/* ----- CLOSE BUTTON HOVER STATE ----- */
+.custom-modal .ant-modal-close:hover {
+}
+
+.custom-modal .ant-modal-close:hover .ant-modal-close-icon {
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* ----- MOBILE STYLES ----- */
+@media (max-width: 768px) {
+  .custom-modal .ant-modal {
+  }
+
+  .custom-modal .ant-modal-content {
+  }
+
+  .custom-modal .ant-modal-body {
+  }
+}
+
+/* ============================================
+   ANIMATION CUSTOMIZATION
+   ============================================ */
+
+/* ----- MODAL ENTER ANIMATION ----- */
+
+/* ----- DISABLE ANIMATION ----- */
+
+/* ============================================
+   SCROLLBAR CUSTOMIZATION (for modal body)
+   ============================================ */

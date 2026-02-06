@@ -28,7 +28,7 @@ const Header = () => {
 
       <div className="flex flex-1 items-center justify-end mx-4">
         <Tooltip placement="bottom" title="Edit current board">
-          <button className="h-full text-amber-50 flex items-center ml-4">
+          <button  className="h-full text-amber-50 flex items-center ml-4">
             <EditOutlined className="text-base" />
           </button>
         </Tooltip>
@@ -42,7 +42,7 @@ const Header = () => {
         <h2 className="text-amber-50 text-base text-cent mx-2">●</h2>
 
         <Tooltip placement="bottom" title="View task list">
-          <button className="h-full text-amber-50 flex items-center ml-4">
+          <button onClick={() => {openModal(MODALS.EDIT_BOARDS); setModalTitle("Board List Editor");}} className="h-full text-amber-50 flex items-center ml-4">
             <UnorderedListOutlined className="text-base" />
           </button>
         </Tooltip>
