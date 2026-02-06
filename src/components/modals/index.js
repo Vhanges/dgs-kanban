@@ -1,5 +1,5 @@
 import NewBoardModal from "./NewBoardModal";
-import { registerModal } from "../../store/modalStore"; 
+import { registerModal } from "../../store/modalStore";
 import EditBoardsModal from "./EditBoardsModal";
 
 registerModal("newBoard", NewBoardModal);

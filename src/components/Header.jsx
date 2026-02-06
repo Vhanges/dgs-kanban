@@ -7,7 +7,7 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import { Tooltip } from "antd";
-import useModalStore from "../store/modalStore";
+import { useModalStore } from "../store/modalStore";
 import { MODALS } from "./modals";
 
 const Header = () => {

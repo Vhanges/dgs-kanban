@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { taskTestData } from "../data/taskTestData";
 
 export const useBoardStore = create((set) => ({
+  boards: taskTestData,
   columns: taskTestData[0]?.boardColumns || [],
   setColumns: (columns) => set({ columns }),
 

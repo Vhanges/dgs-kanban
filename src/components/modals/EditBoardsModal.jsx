@@ -4,32 +4,32 @@ import { useBoardStore } from "../../store/useBoardStore";
 
 const EditBoardsModal = ({closeModal}) => {
 
-    const boardColumns = useBoardStore((state) => state.columns);
+    const boardList = useBoardStore((state) => state.boards);
     const [checkedItems, setCheckedItems] = useState({});
 
-    const handleItemClick = (columnId) => {
+    const handleItemClick = (boardId) => {
         setCheckedItems((prev) => ({
             ...prev,
-            [columnId]: !prev[columnId]
+            [boardId]: !prev[boardId]
         }));
     };
 
     return(
         <Form className="w-90 max-h-80 overflow-y-auto flex flex-col ">
             <div className="flex-1 gap-1 overflow-y-auto">
-                {boardColumns.map((column) => {
+                {boardList.map((board) => {
                   
-                  const boardName = column.boardName;
-                  const boardNotes = column.boardNotes;
-                  const isChecked = checkedItems[column.id];
+                  const boardName = board.boardName;
+                  const boardNotes = board.boardNotes;
+                  const isChecked = checkedItems[board.id];
 
                   return (
                     <Form.Item 
-                        key={column.id}
+                        key={board.id}
                         className={`hover:bg-dark-black w-fill cursor-pointer transition-colors ${
                             isChecked ? "bg-dark-blue" : ""
                         }`}
-                        onClick={() => handleItemClick(column.id)}
+                        onClick={() => handleItemClick(board.id)}
                     >
                         <div className="w-fill flex gap-3 p-2">
                             <Checkbox checked={isChecked} onChange={() => {}}/>
