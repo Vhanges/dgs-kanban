@@ -8,6 +8,8 @@ const EditBoardsModal = ({closeModal}) => {
     const [checkedItems, setCheckedItems] = useState({});
 
     const handleItemClick = (boardId) => {
+        console.log("HELLO")
+
         setCheckedItems((prev) => ({
             ...prev,
             [boardId]: !prev[boardId]

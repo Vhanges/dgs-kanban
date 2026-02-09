@@ -3,11 +3,12 @@ import { taskTestData } from "../data/taskTestData";
 import { arrayMove } from "@dnd-kit/sortable";
 
 const initialBoardId = taskTestData[0]?.id || null;
+const initialBoard = taskTestData.find((board) => board.id === initialBoardId);
 
 export const useBoardStore = create((set) => ({
   boards: taskTestData,
   boardInUse: initialBoardId,
-  columns: taskTestData[initialBoardId]?.boardColumns || [],
+  columns: initialBoard?.boardColumns || [],
 
   setBoardInUse: (boardId) =>
     set(() => {
