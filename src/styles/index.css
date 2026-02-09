@@ -4,8 +4,9 @@
    ============================================ */
 
 /* Ant Design Component Overrides */
-@import './modal.css';
-@import './input.css';
+@import './antdesign/modal.css';
+@import './antdesign/input.css';
+@import './antdesign/checkbox.css';
 /* Add more component styles as needed:
 @import './button.css';
 @import './form.css';

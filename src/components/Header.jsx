@@ -18,7 +18,6 @@ const Header = () => {
 
   return (
     <div className="w-full h-fit bg-dark-dark-gray flex justify-items-center flex-row gap-3">
-      
       <div className="flex flex-row gap-3 flex1 justify-items-center overflow-x-scroll">
         {boards.map((board) => (
           <button
@@ -59,7 +58,13 @@ const Header = () => {
         <h2 className="text-amber-50 text-base text-cent mx-2">●</h2>
 
         <Tooltip placement="bottom" title="View task list">
-          <button onClick={() => {openModal(MODALS.EDIT_BOARDS); setModalTitle("Board List Editor");}} className="h-full text-amber-50 flex items-center ml-4">
+          <button
+            onClick={() => {
+              openModal(MODALS.EDIT_BOARDS);
+              setModalTitle("Board List Editor");
+            }}
+            className="h-full text-amber-50 flex items-center ml-4"
+          >
             <UnorderedListOutlined className="text-base" />
           </button>
         </Tooltip>
