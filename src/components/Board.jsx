@@ -13,6 +13,7 @@ const Board = () => {
   const reorderTask = useBoardStore((state) => state.reorderTask);
   const [openNewTaskPanel, setOpenNewTaskPanel] = useState(false);
 
+
   const [activeTask, setActiveTask] = useState(null);
 
   const showAddNewTaskPanel = () => {

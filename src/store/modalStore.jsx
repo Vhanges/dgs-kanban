@@ -4,7 +4,7 @@ const modalRegistry = {};
 
 export const registerModal = (name, component) => {
   modalRegistry[name] = component;
-};
+};    
 
 export const renderModalContent = (name, props) => {
   const Component = modalRegistry[name];
