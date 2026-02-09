@@ -48,20 +48,20 @@ const ColumnHeader = ({
                 </Button>
               </Tooltip>
               <Tooltip title="Edit column">
-                <button
+                <Button
                   className="cursor-pointer p-1 hover:bg-white/5 rounded-sm flex items-center justify-center"
                   type="primary"
                 >
                   <MdModeEditOutline className="w-5 h-4" />
-                </button>
+                </Button>
               </Tooltip>
               <Tooltip title="Edit Columns">
-                <button
+                <Button
                   className="cursor-pointer p-1 hover:bg-white/5 rounded-sm flex items-center justify-center"
                   type="primary"
                 >
                   <RiDeleteBin6Line className="w-5 h-4" />
-                </button>
+                </Button>
               </Tooltip>
             </div>
           </div>

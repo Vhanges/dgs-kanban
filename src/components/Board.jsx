@@ -5,6 +5,7 @@ import { useBoardStore } from "../store/useBoardStore";
 import { useState } from "react";
 import { DndContext, DragOverlay, closestCorners } from "@dnd-kit/core";
 import AddNewTaskModal from "./AddNewTaskPanel";
+import { Drawer } from "antd";
 
 const Board = () => {
   const columns = useBoardStore((state) => state.columns);
@@ -18,7 +19,7 @@ const Board = () => {
     setOpenNewTaskPanel(true);
   };
 
-  const closeAddNewTaskPanel = () => {
+  const onClose = () => {
     setOpenNewTaskPanel(false);
   };
 
@@ -81,41 +82,42 @@ const Board = () => {
   };
 
   return (
-    <DndContext
-      onDragStart={handleDragStart}
-      onDragOver={handleDragOver}
-      onDragEnd={handleDragEnd}
-      collisionDetection={closestCorners}
-    >
-      <div className="pt-4 flex flex-col overflow-y-hidden h-screen">
-        <div className="w-full flex justify-center items-center mb-4">
-          <AddNewColumnButton />
-        </div>
+    <>
+      <DndContext
+        onDragStart={handleDragStart}
+        onDragOver={handleDragOver}
+        onDragEnd={handleDragEnd}
+        collisionDetection={closestCorners}
+      >
+        <div className="pt-4 flex flex-col overflow-y-hidden h-screen">
+          <div className="w-full flex justify-center items-center mb-4">
+            <AddNewColumnButton />
+          </div>
 
-        <div className="flex flex-1 overflow-x-auto overflow-y-hidden">
-          <div className="px-4 flex">
-            {columns?.map((column) => (
-              <Column
-                showAddNewTaskPanel={showAddNewTaskPanel}
-                key={column.id}
-                column={column}
-              />
-            ))}
+          <div className="flex flex-1 overflow-x-auto overflow-y-hidden">
+            <div className="px-4 flex">
+              {columns?.map((column) => (
+                <Column
+                  showAddNewTaskPanel={showAddNewTaskPanel}
+                  key={column.id}
+                  column={column}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      <DragOverlay>
-        {activeTask ? <TaskCard task={activeTask} isOverlay /> : null}
-      </DragOverlay>
-
-      {openNewTaskPanel ? (
-        <AddNewTaskModal
-          open={openNewTaskPanel}
-          onClose={closeAddNewTaskPanel}
-        />
-      ) : null}
-    </DndContext>
+        <DragOverlay>
+          {activeTask ? <TaskCard task={activeTask} isOverlay /> : null}
+        </DragOverlay>
+      </DndContext>
+      <Drawer
+        open={openNewTaskPanel}
+        title="Basic Drawer"
+        closable={{ "aria-label": "Close Button" }}
+        onClose={onClose}
+      ></Drawer>
+    </>
   );
 };
 

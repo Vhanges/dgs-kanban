@@ -18,7 +18,6 @@ const Header = () => {
 
   return (
     <div className="w-full h-fit bg-dark-dark-gray flex justify-items-center flex-row gap-3">
-      
       <div className="flex flex-row gap-3 flex1 justify-items-center overflow-x-scroll">
         {boards.map((board) => (
           <button
